@@ -57,5 +57,5 @@ RUN set -eux; \
 	echo "${DRUPAL_MD5} *drupal.tar.gz" | md5sum -c -; \
 	tar -xz --strip-components=1 -f drupal.tar.gz; \
 	rm drupal.tar.gz; \
-	sed -i "s/OR pg_attrdef.adsrc LIKE 'nextval%')/OR pg_get_expr(pg_attrdef.adbin, pg_attribute.attrelid) LIKE 'nextval%')/g" ./core/lib/Drupal/Core/Database/Driver/pgsql/Schema.php\
+	sed -i "s/OR pg_attrdef.adsrc LIKE 'nextval%')/OR pg_get_expr(pg_attrdef.adbin, pg_attribute.attrelid) LIKE 'nextval%')/g" ./core/lib/Drupal/Core/Database/Driver/pgsql/Schema.php; \
 	chown -R www-data:www-data sites modules themes
